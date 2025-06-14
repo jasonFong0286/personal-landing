@@ -1,0 +1,19 @@
+import Landing from '@/pages/landing/Landing';
+import { Routes, Route, Navigate } from 'react-router-dom';
+
+/**
+ * Centralized routing component
+ */
+export default function Router() {
+  return (
+    <Routes>
+      {/* Public routes */}
+      <Route path="/"                 element={<Landing />} />
+
+      {/* Protected Route (Required Authentication) */}
+
+      {/* Fallback */}
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
+  );
+}

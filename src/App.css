@@ -1,0 +1,25 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden; /* keep horizontal scrolling off */
+  overflow-y: auto;   /* allow vertical scroll */
+}
+
+input:focus {
+  outline: none;
+}
+
+:root {
+  --bg-light-sky-blue       : #D0E7FF;
+}
+
+.bg-light-sky-blue {
+  background-color: var(--bg-light-sky-blue);
+}
