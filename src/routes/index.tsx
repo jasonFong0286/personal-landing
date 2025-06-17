@@ -1,4 +1,5 @@
 import Landing from '@/pages/landing/Landing';
+import NotFound from '@/pages/NotFound';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 /**
@@ -8,12 +9,12 @@ export default function Router() {
   return (
     <Routes>
       {/* Public routes */}
-      <Route path="/"                 element={<Landing />} />
+      <Route path="/"                 element={<NotFound />} />
 
       {/* Protected Route (Required Authentication) */}
 
       {/* Fallback */}
-      <Route path="*" element={<Navigate to="/" replace />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
