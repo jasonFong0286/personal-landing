@@ -1,100 +1,69 @@
-import { AlertTriangle } from "lucide-react";
-import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
-import { useCallback } from "react";
+import { Button } from "@/components/ui/button";
+import ThreeScene from "@/components/ThreeScene";
 
 const NotFound = () => {
   const location = useLocation();
 
   useEffect(() => {
-    console.error("404 Error: User attempted to access non-existent route:", location.pathname);
+    console.error(
+      "404 Error: User attempted to access non-existent route:",
+      location.pathname
+    );
   }, [location.pathname]);
 
-  const particlesInit = useCallback(async (engine) => {
-    await loadFull(engine);
-  }, []);
-
   return (
-    <div className="relative min-h-screen bg-gray-950 flex items-center justify-center overflow-hidden text-white">
-      <Particles
-        id="tsparticles"
-        init={particlesInit}
-        options={{
-          fullScreen: { enable: false },
-          background: { color: { value: "#0f172a" } },
-          particles: {
-            number: { value: 80 },
-            color: { value: "#6366f1" },
-            shape: { type: "circle" },
-            opacity: { value: 0.5 },
-            size: { value: 3 },
-            move: {
-              enable: true,
-              speed: 1.5,
-              direction: "none",
-              outModes: { default: "bounce" },
-            },
-          },
-          interactivity: {
-            events: {
-              onHover: { enable: true, mode: "repulse" },
-              onClick: { enable: true, mode: "push" },
-              resize: true,
-            },
-            modes: {
-              repulse: { distance: 100 },
-              push: { quantity: 4 },
-            },
-          },
-        }}
-        className="absolute top-0 left-0 w-full h-full z-0"
-      />
-
-      <motion.div
-        className="z-10 text-center px-6"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ type: "spring", stiffness: 80 }}
-      >
-        <motion.div
-          className="inline-flex items-center justify-center bg-gradient-to-br from-purple-600 to-indigo-500 text-white p-6 rounded-full shadow-2xl mb-6 animate-spin-slow"
-          initial={{ rotate: 0 }}
-          animate={{ rotate: 360 }}
-          transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-        >
-          <AlertTriangle className="w-10 h-10" />
-        </motion.div>
-
-        <motion.h1
-          className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600"
-          initial={{ y: -40, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          404
-        </motion.h1>
-
-        <motion.p
-          className="text-xl text-gray-300 mt-4"
-          initial={{ y: 40, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-        >
-          Page not found in the matrix.
-        </motion.p>
-
-        <motion.a
-          href="/"
-          className="inline-block mt-8 px-6 py-3 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-600 hover:brightness-110 transition-all shadow-lg font-semibold"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Return to Reality
-        </motion.a>
-      </motion.div>
+    <div className="relative min-h-screen w-full overflow-hidden">
+      {/* 3D Background Scene */}
+      <ThreeScene />
+      
+      {/* Content Overlay */}
+      <div className="relative z-10 min-h-screen flex items-center justify-center">
+        <div className="text-center text-white px-6">
+          <div className="mb-8">
+            <h1 className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
+              404
+            </h1>
+            <div className="h-1 w-32 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto mb-6"></div>
+            <h2 className="text-2xl md:text-3xl font-semibold mb-4">
+              Lost in the Digital Void
+            </h2>
+            <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-md mx-auto">
+              The page you're looking for has drifted away into cyberspace. 
+              Let's get you back to familiar territory.
+            </p>
+          </div>
+          
+          <div className="space-y-4">
+            <Button 
+              onClick={() => window.location.href = '/'}
+              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 text-lg font-semibold transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
+            >
+              Return to Home
+            </Button>
+            
+            <div className="flex justify-center space-x-4 text-sm text-gray-400">
+              <button 
+                onClick={() => window.history.back()}
+                className="hover:text-purple-400 transition-colors"
+              >
+                ← Go Back
+              </button>
+              <span>|</span>
+              <button 
+                onClick={() => window.location.reload()}
+                className="hover:text-purple-400 transition-colors"
+              >
+                Refresh Page
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Subtle gradient overlay for better text readability */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none"></div>
     </div>
   );
 };
