@@ -8,10 +8,12 @@ const Landing = () => {
 
   return (
     <div className="flex flex-col w-full bg-white">
-      <NavBar />
-      <HeroSection />
-      <Features />
-      <Footer />
+      <>
+        <NavBar />
+        <HeroSection />
+        <Features />
+        <Footer />
+      </>
     </div>
   );
 };

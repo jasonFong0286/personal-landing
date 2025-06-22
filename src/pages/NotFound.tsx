@@ -1,7 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import ThreeScene from "@/components/ThreeScene";
 
 const NotFound = () => {
   const location = useLocation();
@@ -15,8 +14,6 @@ const NotFound = () => {
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden">
-      {/* 3D Background Scene */}
-      <ThreeScene />
       
       {/* Content Overlay */}
       <div className="relative z-10 min-h-screen flex items-center justify-center">
