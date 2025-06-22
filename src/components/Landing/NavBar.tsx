@@ -1,32 +1,83 @@
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { Moon, Sun } from "lucide-react";
 
 const NavBar = () => {
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(
+    () => localStorage.getItem("theme") === "dark"
+  );
+
+  useEffect(() => {
+    const html = document.documentElement;
+    if (isDarkMode) {
+      html.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [isDarkMode]);
+
+  const toggleTheme = () => setIsDarkMode((prev) => !prev);
+
+  const navItems = [
+    { label: "Home", href: "#home" },
+    { label: "About", href: "#about" },
+    { label: "Projects", href: "#projects" },
+    { label: "Contact", href: "#contact" },
+  ];
+
   return (
-    <nav className="w-full bg-white/60 backdrop-blur-md shadow-sm border-b border-gray-200 sticky top-0 z-50 transition-all">
+    <motion.nav
+      initial={{ y: -40, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className="w-full bg-white/60 dark:bg-black/40 backdrop-blur-md shadow-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50"
+    >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           
-          {/* Logo Section */}
-          <Link to="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
-            <img src="./assets/img/logo.png" className="h-12 w-12" alt="Priline Logo" />
-            <span className="text-2xl font-extrabold text-gray-900 tracking-tight">Priline</span>
-          </Link>
+          {/* Logo */}
+          <a href="#home" className="flex items-center gap-0 hover:opacity-90 transition-opacity">
+            <img
+              // src={isDarkMode ? "./assets/developer_logo_dark.png" : "./assets/developer_logo.png"}
+              src="./assets/developer_logo_dark.png"
+              alt="Logo"
+              className="h-10 w-10 filter transition duration-300 dark:invert dark:brightness-850"
+            />
+            <span className="text-2xl font-bold text-gray-900 dark:text-white">
+              Jason Fong
+            </span>
+          </a>
 
-          {/* Nav Actions */}
-          <div className="flex items-center gap-4">
-            {/* Future nav items like Docs, Pricing, etc. can go here */}
+          {/* Nav Links */}
+          <div className="hidden md:flex gap-6 items-center text-sm font-medium">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-gray-700 dark:text-gray-200 hover:text-indigo-500 dark:hover:text-indigo-400 transition"
+              >
+                {item.label}
+              </a>
+            ))}
 
-            <Link
-              to="/login"
-              className="relative inline-flex items-center justify-center px-5 py-2 overflow-hidden font-semibold text-white transition duration-300 ease-in-out bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl shadow-md hover:from-indigo-700 hover:to-purple-700 focus:outline-none"
+            {/* Theme toggle */}
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition"
+              aria-label="Toggle dark mode"
             >
-              <span className="z-10">Sign In</span>
-              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-indigo-500 to-purple-500 opacity-10 blur-sm"></span>
-            </Link>
+              {isDarkMode ? (
+                <Sun className="w-5 h-5 text-yellow-400" />
+              ) : (
+                <Moon className="w-5 h-5 text-gray-800 dark:text-gray-200" />
+              )}
+            </button>
           </div>
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 

@@ -1,7 +1,8 @@
 import NavBar from '../../components/Landing/NavBar';
 import HeroSection from '../../components/Landing/HeroSection';
-import Features from '../../components/Landing/Features';
 import Footer from '../../components/Landing/Footer';
+import ContactMe from '@/components/Landing/ContactMe';
+import About from '@/components/Landing/About';
 
 
 const Landing = () => {
@@ -11,7 +12,8 @@ const Landing = () => {
       <>
         <NavBar />
         <HeroSection />
-        <Features />
+        <About />
+        <ContactMe/>
         <Footer />
       </>
     </div>
