@@ -28,6 +28,7 @@ const Skills = () => {
         { name: "Unity Engine", level: 75, color: "from-purple-600 to-violet-700" },
         { name: "Firebase (Auth & FCM)", level: 70, color: "from-amber-400 to-yellow-500" },
         { name: "MySQL", level: 55, color: "from-blue-600 to-indigo-500" },
+        { name: "Redux", level: 75, color: "from-purple-500 to-pink-500" },
       ]
     },
     {

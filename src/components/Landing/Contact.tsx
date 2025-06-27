@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, Instagram, Briefcase } from "lucide-react";
 
 const Contact = () => {
   const ref = useRef(null);
@@ -10,14 +10,15 @@ const Contact = () => {
 
   const contactInfo = [
     { icon: Mail, label: "Email", value: "fongtzehao02@gmail.com", href: "mailto:your.email@example.com" },
-    { icon: Phone, label: "Phone", value: "+1 (555) 123-4567", href: "tel:+15551234567" },
+    { icon: Phone, label: "Phone", value: "+60 18-268 3155", href: "tel:+60182683155" },
     { icon: MapPin, label: "Location", value: "Kuala Lumpur, Malaysia", href: "#" },
   ];
 
   const socialLinks = [
-    // { icon: Github, href: "#", label: "GitHub" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    // { icon: Twitter, href: "#", label: "Twitter" },
+    { icon: Github, href: "https://github.com/JasonFong86", label: "Github" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/jason-fong-7011132a4/", label: "LinkedIn" },
+    { icon: Instagram, href: "https://www.instagram.com/ahfong286", label: "Instagram" },
+    { icon: Briefcase, href: "https://my.jobstreet.com/profile/fong-tzehao-mZtrxjHMhf", label: "JobStreet" }
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -82,15 +83,17 @@ const Contact = () => {
                 <h4 className="text-lg font-semibold text-white mb-4">Follow Me</h4>
                 <div className="flex gap-4">
                   {socialLinks.map((social, index) => (
-                    <motion.a
-                      key={index}
-                      href={social.href}
-                      whileHover={{ scale: 1.2, rotate: 5 }}
-                      whileTap={{ scale: 0.9 }}
-                      className="p-3 rounded-full bg-gradient-to-r from-cyan-400/20 to-purple-400/20 hover:from-cyan-400/30 hover:to-purple-400/30 transition-all border border-cyan-400/20"
-                    >
-                      <social.icon size={20} className="text-cyan-400" />
-                    </motion.a>
+                   <motion.a
+                    key={index}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.2, rotate: 5 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="p-3 rounded-full bg-gradient-to-r from-cyan-400/20 to-purple-400/20 hover:from-cyan-400/30 hover:to-purple-400/30 transition-all border border-cyan-400/20"
+                  >
+                    <social.icon size={20} className="text-cyan-400" />
+                  </motion.a>
                   ))}
                 </div>
               </div>
@@ -144,7 +147,7 @@ const Contact = () => {
                     required
                     rows={5}
                     className="w-full px-4 py-3 bg-slate-700/50 border border-cyan-400/20 rounded-lg focus:outline-none focus:border-cyan-400 text-white placeholder-gray-400 transition-colors resize-none"
-                    placeholder="Tell me about your project..."
+                    placeholder="Freelance gig? Full-time role? Slide into my inbox with the deets ✨"
                   />
                 </div>
 
