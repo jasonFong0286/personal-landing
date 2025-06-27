@@ -1,56 +1,97 @@
 import { motion } from "framer-motion";
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2,
-    },
-  },
-};
+import { ChevronDown, Code2, Zap } from "lucide-react";
 
 const HeroSection = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1
+    }
+  };
+
   return (
-    <section
-      id="home"
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-gray-900 dark:to-black"
-    >
+    <section id="home" className="min-h-screen flex items-center justify-center relative pt-20">
       <motion.div
-        className="text-center px-6"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
+        className="text-center z-10 max-w-4xl mx-auto px-6"
       >
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white mb-4"
+        <motion.div
+          variants={itemVariants}
+          className="mb-6"
         >
-          Hey, I’m Jason Fong 👋
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="inline-block p-4 rounded-full bg-gradient-to-r from-cyan-400/20 to-purple-400/20 backdrop-blur-sm border border-cyan-400/30 mb-6"
+          >
+            <Code2 size={48} className="text-cyan-400" />
+          </motion.div>
+        </motion.div>
+
+        <motion.h1
+          variants={itemVariants}
+          className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-cyan-400 to-purple-400 bg-clip-text text-transparent"
+        >
+          Software Developer
         </motion.h1>
 
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-          className="text-xl md:text-2xl text-indigo-600 dark:text-indigo-400 font-semibold mb-4"
-        >
-          Mobile Developer | Interactive Software Technologist
-        </motion.h2>
-
         <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
-          className="text-md md:text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed"
+          variants={itemVariants}
+          className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto"
         >
-          I’m a passionate developer who crafts engaging mobile apps and modern full-stack websites.
-          Graduated from Tunku Abdul Rahman University with a degree in Computer Science,
-          I blend creativity and code to build impactful digital experiences.
+          Crafting innovative digital solutions with modern technologies
+          <br />
+          <span className="text-cyan-400">Building the future, one line of code at a time</span>
         </motion.p>
+
+        <motion.div
+          variants={itemVariants}
+          className="flex justify-center mb-12"
+        >
+          <a href="#contact">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-3 border border-cyan-400 rounded-full font-semibold hover:bg-cyan-400/10 transition-all duration-300"
+            >
+              Get In Touch
+            </motion.button>
+          </a>
+        </motion.div>
+
+        <motion.div
+          variants={itemVariants}
+          className="flex justify-center space-x-6 text-sm text-gray-400"
+        >
+          <span className="flex items-center gap-2">
+            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+            Available for freelance
+          </span>
+          <span>•</span>
+          <span>Based in Kuala Lumpur, Malaysia</span>
+        </motion.div>
+      </motion.div>
+
+      <motion.div
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+      >
+        <ChevronDown size={32} className="text-cyan-400 opacity-60" />
       </motion.div>
     </section>
   );

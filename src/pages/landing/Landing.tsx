@@ -1,25 +1,35 @@
-import NavBar from '../../components/Landing/NavBar';
-import HeroSection from '../../components/Landing/HeroSection';
-import Footer from '../../components/Landing/Footer';
-import ContactMe from '@/components/Landing/ContactMe';
-import About from '@/components/Landing/About';
-import Skills from '@/components/Landing/Skills';
-import Education from '@/components/Landing/Education';
+import About from "@/components/Landing/About";
+import Contact from "@/components/Landing/Contact";
+import Education from "@/components/Landing/Education";
+import Footer from "@/components/Landing/Footer";
+import HeroSection from "@/components/Landing/HeroSection";
+import NavBar from "@/components/Landing/NavBar";
+import ParticleBackground from "@/components/Landing/ParticleBackground";
+import Projects from "@/components/Landing/Projects";
+import Skills from "@/components/Landing/Skills";
+import { motion } from "framer-motion";
 
 
 const Landing = () => {
 
   return (
-    <div className="flex flex-col w-full bg-white">
-      <>
-        <NavBar />
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-x-hidden">
+      <ParticleBackground />
+      <NavBar />
+      <motion.main
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="relative z-10"
+      >
         <HeroSection />
         <About />
+        <Education/>
         <Skills />
-        <Education />
-        <ContactMe/>
-        <Footer />
-      </>
+        <Projects />
+        <Contact />
+      </motion.main>
+      <Footer />
     </div>
   );
 };
