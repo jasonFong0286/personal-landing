@@ -3,6 +3,8 @@ import HeroSection from '../../components/Landing/HeroSection';
 import Footer from '../../components/Landing/Footer';
 import ContactMe from '@/components/Landing/ContactMe';
 import About from '@/components/Landing/About';
+import Skills from '@/components/Landing/Skills';
+import Education from '@/components/Landing/Education';
 
 
 const Landing = () => {
@@ -13,6 +15,8 @@ const Landing = () => {
         <NavBar />
         <HeroSection />
         <About />
+        <Skills />
+        <Education />
         <ContactMe/>
         <Footer />
       </>

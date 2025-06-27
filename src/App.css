@@ -136,3 +136,13 @@ input:focus {
     @apply bg-background text-foreground;
   }
 }
+
+/* In your global CSS (e.g., src/index.css) */
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  -ms-overflow-style: none;  /* IE/Edge */
+  scrollbar-width: none;     /* Firefox */
+}
