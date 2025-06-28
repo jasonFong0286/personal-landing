@@ -1,5 +1,5 @@
 import Landing from '@/pages/landing/Landing';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 /**
  * Centralized routing component
