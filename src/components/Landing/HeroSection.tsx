@@ -42,6 +42,13 @@ const HeroSection = () => {
           </motion.div>
         </motion.div>
 
+        <motion.h2
+          variants={itemVariants}
+          className="text-3xl md:text-4xl font-semibold mb-2 text-cyan-400"
+        >
+          Hi, I'm Jason Fong
+        </motion.h2>
+
         <motion.h1
           variants={itemVariants}
           className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-cyan-400 to-purple-400 bg-clip-text text-transparent"
