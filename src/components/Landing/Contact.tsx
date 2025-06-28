@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, Instagram, Briefcase } from "lucide-react";
+import emailjs from "emailjs-com";
 
 const Contact = () => {
   const ref = useRef(null);
@@ -23,8 +24,23 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Handle form submission here
+
+    emailjs.send(
+      "service_a7mrpal",     // replace with your actual Service ID
+      "template_541kbio",    // replace with your actual Template ID
+      formData,
+      "aEj0ggNV9NVP2hHHD"      // replace with your actual Public Key
+    ).then(
+      (result) => {
+        console.log("Email successfully sent!", result.text);
+        alert("Message sent! I'll get back to you soon.");
+        setFormData({ name: "", email: "", message: "" });
+      },
+      (error) => {
+        console.error("Error sending email:", error.text);
+        alert("Oops! Something went wrong.");
+      }
+    );
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

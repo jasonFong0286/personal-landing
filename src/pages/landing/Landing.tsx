@@ -16,20 +16,16 @@ const Landing = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-x-hidden">
       <ParticleBackground />
       <NavBar />
-      <motion.main
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        className="relative z-10"
-      >
+      <motion.main className="relative z-10">
         <HeroSection />
         <About />
-        <Education/>
+        <Education />
         <Skills />
-        <Projects />
+        {/* <Projects /> */}
         <Contact />
+        <Footer />
       </motion.main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
