@@ -15,12 +15,28 @@ const NavBar = () => {
   ];
 
   useEffect(() => {
+    const sectionIds = navItems.map((item) => item.id);
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+
+      const scrollPos = window.scrollY + window.innerHeight / 2;
+
+      for (const id of sectionIds) {
+        const section = document.getElementById(id);
+        if (section) {
+          const { offsetTop, offsetHeight } = section;
+          if (scrollPos >= offsetTop && scrollPos < offsetTop + offsetHeight) {
+            setActiveSection(id);
+            break;
+          }
+        }
+      }
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [navItems]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -58,11 +74,17 @@ const NavBar = () => {
                 whileTap={{ scale: 0.95 }}
                 className={`relative px-4 py-2 transition-colors duration-300 ${
                   activeSection === item.id 
-                    ? "text-cyan-400" 
-                    : "text-gray-300 hover:text-white"
+                    ? "text-cyan-400 text-lg font-semibold" 
+                    : "text-gray-300 hover:text-white text-lg font-semibold"
                 }`}
               >
-                {item.label}
+                <motion.span
+                  layout
+                  transition={{ duration: 0.2 }}
+                  className={activeSection === item.id ? "text-lg" : "text-base"}
+                >
+                  {item.label}
+                </motion.span>
                 {activeSection === item.id && (
                   <motion.div
                     layoutId="activeSection"
