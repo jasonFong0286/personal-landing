@@ -8,7 +8,7 @@ const About = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const stats = [
-    { icon: Calendar, value: "8+", label: "Months Experience" },
+    { icon: Calendar, value: "11+", label: "Months Experience" },
     { icon: Award, value: "5", label: "Projects Built" },
     { icon: Coffee, value: "300+", label: "Cups of Coffee" },
     { icon: User, value: "3+", label: "Happy Clients" },
@@ -39,13 +39,18 @@ const About = () => {
           >
             <div className="bg-gradient-to-br from-slate-800/50 to-purple-900/30 backdrop-blur-sm rounded-2xl p-8 border border-cyan-400/20">
               <p className="text-lg text-gray-300 leading-relaxed mb-6">
-                I'm a Mobile Application Developer with around 8 months of professional experience and a strong background in full-stack and interactive software technologies. I started my journey building mobile apps with Kotlin and React Native, and have since delivered solid freelance and academic projects across web, mobile, and game development.
+                I'm a Mobile Application Developer with <span className="text-cyan-400 font-semibold">11 months of professional experience </span> 
+                building cross-platform mobile apps using React Native and Redux. Beyond coding, I’ve also stepped into team lead–style responsibilities — 
+                from reviewing code and mentoring teammates to collaborating with project and product managers on requirements and flow design.
               </p>
               <p className="text-lg text-gray-300 leading-relaxed mb-6">
-                I'm passionate about crafting clean, efficient code and building meaningful digital experiences. My skills cover React, React Native, Firebase, Tailwind CSS, and Express.js — and I’m always exploring new tools to stay ahead of the curve.
+                My journey started with Kotlin and React Native, and since then I’ve delivered projects spanning web, mobile, and interactive 3D software. 
+                I thrive on writing clean, scalable code while keeping delivery on track — whether it’s managing my own tasks or ensuring the team 
+                hits sprint goals.
               </p>
               <p className="text-lg text-gray-300 leading-relaxed">
-                Whether it's building feature-rich mobile apps or experimenting with Unity for 3D games, I'm constantly leveling up and pushing my creative boundaries.
+                Skilled in React, React Native, Firebase, Tailwind CSS, and Express.js, I’m passionate about crafting meaningful digital experiences. 
+                Whether it’s shipping production-ready apps or experimenting with Unity for 3D games, I’m always pushing my boundaries and leveling up.
               </p>
             </div>
           </motion.div>

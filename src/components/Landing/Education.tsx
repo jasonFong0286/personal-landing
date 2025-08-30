@@ -12,7 +12,7 @@ const Education = () => {
       institution: "Tunku Abdul Rahman University of Management and Technology",
       location: "Kuala Lumpur, Malaysia",
       period: "June 2022 – August 2024",
-      status: "Fresh Graduate",
+      status: "Degree Holder",
       achievements: [
         "Graduated with Merit",
         "Dean's List Award Recipient (September 2023 Semester)", // ← fixed 'Sememster' typo
