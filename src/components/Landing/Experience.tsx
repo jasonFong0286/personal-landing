@@ -10,7 +10,7 @@ const Experience = () => {
   const experienceData = [
     {
       title: "Mobile Developer",
-      company: "Mochi Business Application",
+      company: "Mochi Technologies Sdn Bhd",
       location: "Kuala Lumpur, Malaysia",
       period: "Oct 2024 – Present",
       type: "Full-time",
@@ -25,7 +25,7 @@ const Experience = () => {
     },
     {
       title: "Virtual Reality Developer (Internship)",
-      company: "Tunku Abdul Rahman University Project Lab",
+      company: "Virtual Reality Sdn Bhd",
       location: "Kuala Lumpur, Malaysia",
       period: "Feb 2024 – Aug 2024",
       type: "Internship",
