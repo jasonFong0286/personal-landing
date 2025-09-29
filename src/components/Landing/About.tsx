@@ -15,7 +15,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 px-6">
+    <section id="about" className="min-h-screen flex items-center py-20 px-6 bg-slate-900/50">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           ref={ref}

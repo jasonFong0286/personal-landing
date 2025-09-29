@@ -1,11 +1,11 @@
 import About from "@/components/Landing/About";
 import Contact from "@/components/Landing/Contact";
 import Education from "@/components/Landing/Education";
+import Experience from "@/components/Landing/Experience";
 import Footer from "@/components/Landing/Footer";
 import HeroSection from "@/components/Landing/HeroSection";
 import NavBar from "@/components/Landing/NavBar";
 import ParticleBackground from "@/components/Landing/ParticleBackground";
-import Projects from "@/components/Landing/Projects";
 import Skills from "@/components/Landing/Skills";
 import { motion } from "framer-motion";
 
@@ -19,8 +19,9 @@ const Landing = () => {
       <motion.main className="relative z-10">
         <HeroSection />
         <About />
-        <Education />
+        <Experience/>
         <Skills />
+        <Education />
         {/* <Projects /> */}
         <Contact />
         <Footer />

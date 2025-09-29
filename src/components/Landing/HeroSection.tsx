@@ -15,9 +15,13 @@ const HeroSection = () => {
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1
+    visible: { y: 0, opacity: 1 }
+  };
+
+    const scrollToAbout = () => {
+    const aboutSection = document.getElementById("about");
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -93,13 +97,19 @@ const HeroSection = () => {
         </motion.div>
       </motion.div>
 
-      <motion.div
+      {/* Pressable Chevron */}
+      <motion.button
+        onClick={scrollToAbout}
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 
+                   focus:outline-none"
       >
-        <ChevronDown size={32} className="text-cyan-400 opacity-60" />
-      </motion.div>
+        <ChevronDown
+          size={40}
+          className="text-cyan-400 opacity-70 hover:opacity-100 transition-opacity duration-300"
+        />
+      </motion.button>
     </section>
   );
 };
