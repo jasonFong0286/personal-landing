@@ -8,7 +8,7 @@ const About = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const stats = [
-    { icon: Calendar, value: "11+", label: "Months Experience" },
+    { icon: Calendar, value: "1+", label: "Year Experience" },
     { icon: Award, value: "5", label: "Projects Built" },
     { icon: Coffee, value: "300+", label: "Cups of Coffee" },
     { icon: User, value: "3+", label: "Happy Clients" },
