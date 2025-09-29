@@ -15,7 +15,8 @@ const Experience = () => {
       period: "Oct 2024 – Present",
       type: "Full-time",
       responsibilities: [
-        "Built and maintained cross-platform mobile apps using React Native and Redux for both iOS and Android, including end-to-end solo project development from setup to deployment.",
+        "Built and maintained cross-platform mobile apps using React Native and Redux for both iOS and Android.",
+        "Experience in end to end solo mobile application project development, including deployment of the application.",
         "Integrated RESTful APIs, managed global state, and optimized app performance for scalability and responsiveness.",
         "Collaborated with UI/UX designers to deliver clean, user-centered interfaces.",
         "Led code reviews and guided junior developers to maintain a high-quality, maintainable codebase.",
